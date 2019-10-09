@@ -7,7 +7,7 @@
  *  Due to the fact that no license is provided with this bot that means that it falls under the not publicly available category.
 */
 
-const Discord = require('discord.js')
+const Discord = require("discord.js");
 const rathens = new Discord.Client;
 const timers = require('timers')
 const config = require('./config.json')
