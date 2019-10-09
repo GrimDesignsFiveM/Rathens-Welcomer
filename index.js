@@ -31,6 +31,7 @@ const customtext = config.customtext
 const guildconfig = config.embed_guildname
 const ecolor = config.embed_color
 const moment = require('moment');
+const token = proces.env.BOT_TOKEN
 
 ////////////////////////////////////////////////////
 /* If you are self hostig delete these lines and   /
