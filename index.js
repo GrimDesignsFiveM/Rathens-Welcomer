@@ -8,7 +8,7 @@
 */
 
 const Discord = require("discord.js");
-const rathens = new Discord.Client;
+const rathens = new Discord.Client();
 const timers = require('timers')
 const config = require('./config.json')
 const welcome_channel = config.welcome_channel    
