@@ -8,7 +8,7 @@
 */
 
 const Discord = require('discord.js');
-const client = new Discord.Client;
+const rathens = new Discord.Client;
 const timers = require('timers')
 const config = require('./config.json')
 const welcome_channel = config.welcome_channel    
@@ -64,11 +64,11 @@ let activities = [
 ]
 let i = 0;
 //On Ready
-  client.on('ready', () => {
-    console.log(`${client.user.username} has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
+  rathens.on('ready', () => {
+    console.log(`${rathens.user.username} has started, with ${rathens.users.size} users, in ${rathens.channels.size} channels of ${rathens.guilds.size} guilds.`);
     timers.setInterval(() => {
       i = i == activities.length ? 0 : i
-      client.user.setActivity(activities[i].name, activities[i].options)
+      rathens.user.setActivity(activities[i].name, activities[i].options)
       i++
     }, time1)
   });
@@ -80,9 +80,9 @@ const invites = {};
 const wait = require('util').promisify(setTimeout);
 
 //This is the bots startup log output and playing status.
-//client.on("ready",  async () => {
-//console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
- // client.user.setGame(`nb/help in ${client.guilds.size} Servers`, `https://www.twitch.tv/monstercat`);
+//rathens.on("ready",  async () => {
+//console.log(`Bot has started, with ${rathens.users.size} users, in ${rathens.channels.size} channels of ${rathens.guilds.size} guilds.`); 
+ // rathens.user.setGame(`nb/help in ${rathens.guilds.size} Servers`, `https://www.twitch.tv/monstercat`);
 
   // "ready" isn't really ready. We need to wait a spell.
   wait(1000); 
@@ -90,7 +90,7 @@ const wait = require('util').promisify(setTimeout);
 //////////////////////////////***SERVER INVITES CACHE FEATURE***////////////////////////////////////////////////
 /* This event is required for loading all invites for all guilds and saving them to the cache. */
 	
-  client.guilds.forEach(g => {
+  rathens.guilds.forEach(g => {
     g.fetchInvites().then(guildInvites => {
       invites[g.id] = guildInvites;
     });
@@ -99,7 +99,7 @@ const wait = require('util').promisify(setTimeout);
 
 //////////////////////////////***MEMBER JOINED INVITE LOG***////////////////////////////////////////////////
 /* This event logs what invte code was used when a member joins the server */
-client.on('guildMemberAdd', member => {
+rathens.on('guildMemberAdd', member => {
   // To compare, we need to load the current invite list.
   member.guild.fetchInvites().then(guildInvites => {
     // This is the *existing* invites for the guild.
@@ -109,7 +109,7 @@ client.on('guildMemberAdd', member => {
     // Look through the invites, find the one for which the uses went up.
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     // This is just to simplify the message being sent below (inviter doesn't have a tag property)
-    const inviter = client.users.get(invite.inviter.id);
+    const inviter = rathens.users.get(invite.inviter.id);
     // Get the log channel (change to your liking)
     const logChannel = member.guild.channels.find(channel => channel.name === "invite-logs");
     // A real basic message with the information we need. 
@@ -122,18 +122,18 @@ client.on('guildMemberAdd', member => {
    .addField("Invite Code", `https://www.discord.gg/${invite.code}`, true)
    .addField("Invited By", `<@${inviter.id}>`, true)
    .addField("Code Used ", `${invite.uses} times since its creation.`, true)
-   .setFooter(`© Ninja Bot v1.00`, `https://cdn.discordapp.com/avatars/595155471611068426/b6ffdf628b989aa8c55c446ff623042f.png?size=2048?size=1024`);
+   .setFooter("© Rathens Welcomer");
    logChannel.send(iEmbed);
   });
  });
 
   //On Message
-  client.on("message", async message =>{
+  rathens.on("message", async message =>{
   if (message.content === `${prefix}add`)
-  client.emit('guildMemberAdd', message.member);
+  rathens.emit('guildMemberAdd', message.member);
 
   if (message.content === `${prefix}remove`)
-  client.emit('guildMemberRemove', message.member);
+  rathens.emit('guildMemberRemove', message.member);
 
    if (message.content === `${prefix}ping`)
   message.channel.send(`Hoold on!`).then(m => {
@@ -141,14 +141,14 @@ client.on('guildMemberAdd', member => {
       `:ping_pong: Wew, made it over the ~waves~ ! **Pong!**\nMessage edit time is ` +
         (m.createdTimestamp - message.createdTimestamp) +
         `ms, Discord API heartbeat is ` +
-        Math.round(client.ping) +
+        Math.round(rathens.ping) +
         `ms.`
        );
     });
  });
 
 //////////////////////////////////////////////////SUPPORT SERVER ONLY/////////////////////////////////////////////////////////
-  client.on('guildMemberAdd', member => {
+  rathens.on('guildMemberAdd', member => {
   let count = member.guild.memberCount.toString() 
   let end = count[count.length-1]
   let suffixed = end == 1 ? count + "st" : end == 2 ? count + "nd" : end == 3 ? count + "rd" : count + "th" 
@@ -160,20 +160,20 @@ client.on('guildMemberAdd', member => {
       };
       const guildspot = guildconfig || member.guild
       const emojispot = ` ` || `${emojiID}`
-      let rules = member.guild.channels.find("id", "599125201829232651")
-      let str = `Welcome to **${guildspot}**! <@${member.user.id}>! Make sure you read our ${rules} channel and react to the message to get the Verified Members role`
+      let rules = member.guild.channels.find("id", "627960820436828172")
+      let str = `Welcome to **${guildspot}**! <@${member.user.id}>!, Make sure you read the ${rules} channel :thumbsup:`
       const embed = new Discord.RichEmbed()
       .setTitle("Member Joined :thinking: :eyes:")
       .setColor(ecolor)
       .setDescription(str)
-      .setURL("https://discord.gg/VS8F5Wa")
+      .setURL("https://discord.gg/tEkJP2b")
       .addField("User Tag", `${member.user.tag}`, true)
       .addField("User ID", `${member.user.id}`, true)
       .addField("You Are The", `${suffixed} Member`, true)
       .addField('Joined Discord', `${moment(member.user.createdAt).toString().substr(0, 15)}\n(${moment(member.user.createdAt).fromNow()})`, true)
       .addField('Joined Server', `${moment(member.user.joinedAt).toString().substr(0, 15)}\n(${moment(member.user.joinedAt).fromNow()})`, true)   
       .setThumbnail(memberavatar)
-      .setFooter("Hattori Hanzo v1.00")
+      .setFooter("© Rathens Welcomer")
       .setTimestamp();
       channel.send(embed);
   
@@ -181,7 +181,7 @@ client.on('guildMemberAdd', member => {
   logs.send(`> :inbox_tray: ${member} has Joined ${member.guild.name}.`)
 });
 
-client.on('guildMemberRemove', member => {
+rathens.on('guildMemberRemove', member => {
   let count = member.guild.memberCount.toString() 
   let end = count[count.length-1]
   let suffixed = end == 1 ? count + "st" : end == 2 ? count + "nd" : end == 3 ? count + "rd" : count
@@ -198,14 +198,14 @@ client.on('guildMemberRemove', member => {
       .setTitle("Member Left :shrug:")
       .setColor(ecolor)
       .setDescription(str)
-      .setURL("https://discord.gg/VS8F5Wa")
+      .setURL("https://discord.gg/tEkJP2b")
       .addField("User Tag", `${member.user.tag}`, true)
       .addField("User ID", `${member.user.id}`, true)
       .addField("We Now Have", `${suffixed} Members`, true)
       .addField('Joined Discord', `${moment(member.user.createdAt).toString().substr(0, 15)}\n(${moment(member.user.createdAt).fromNow()})`, true)
       .addField('Joined Server', `${moment(member.user.joinedAt).toString().substr(0, 15)}\n(${moment(member.user.joinedAt).fromNow()})`, true)   
       .setThumbnail(memberavatar)
-      .setFooter(`Hattori Hanzo v1.00`)
+      .setFooter("© Rathens Welcomer")
       .setTimestamp();
       channel.send(embed2);
 
@@ -215,8 +215,8 @@ client.on('guildMemberRemove', member => {
 
 //Bot Login Function (Required)
 //Change to config.token if self hosting
-//client.login(config.token)
-client.login(process.env.BOT_TOKEN);
+//rathens.login(config.token)
+rathens.login(process.env.BOT_TOKEN);
 
  /*
  * Code by Tyler. H#9393!!
