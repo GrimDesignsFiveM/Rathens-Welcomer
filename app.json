@@ -1,0 +1,28 @@
+{
+  "name": "Hattori Hanzo",
+  "description": "A basic welcome bot",
+  "keywords": [
+    "node",
+    "heroku",
+    "discord"
+  ],
+   "env": {
+    "BOT_TOKEN": {
+      "description": "A Secret Bot Token, Used To Login The BOT. Get The Token In Your App Settings.",
+      "value": ""
+      
+    "PREFIX": {
+      "description": "Your Bots Prefix",
+      "value": ""
+    },
+  "website": "https://the-watchers.webnode.com/",
+  "repository": "https://github.com/GrimDesignsFiveM/Ninja-Bot-2.0",
+  "logo": "https://cdn.discordapp.com/attachments/586095704057970708/587949134632321034/imageedit_1_8018298797.png",
+  "success_url": "/welcome",
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "token": "",
+  "prefix": "hh/",
+  "embed_emoji": ":ninja:",
+  "logchannel": "welcome-bot-logs",
+  "welcome_channel": "📣welcome",
+  "leave_channel": "📣goodbye",
+  "activity1": "Saying Hello",
+  "type1": "STREAMING",
+  "url": "https://www.twitch.tv/monstercat",
+  "activity2": "Version 1.00",
+  "type2": "STREAMING",
+  "url": "https://www.twitch.tv/monstercat",
+  "activity3": "Ninja Support Server",
+  "type3": "STREAMING",
+  "url": "https://www.twitch.tv/monstercat",
+  "activitytime": "15000",
+  "ownerID": "444609097233465347",
+  "customtext": "Have a nice time.",
+  "embed_color": "363A3F",
+  "embed_guildname": "Ninja Support Server"
+}
