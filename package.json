@@ -9,7 +9,7 @@
   "author": "Tyler. H#9393",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.3.2",
+    "discord.js": "^11.5.1",
     "fs": "0.0.1-security",
     "enmap": "^3.0.2",
     "jimp": "^0.6.0",
