@@ -1,7 +1,7 @@
 {
   "token": "",
   "prefix": "rw/",
-  "embed_emoji": ":ninja:",
+  "embed_emoji": "rathens",
   "logchannel": "welcome-bot-logs",
   "welcome_channel": "📣welcome",
   "leave_channel": "📣goodbye",
@@ -18,5 +18,5 @@
   "ownerID": "337174407040598016",
   "customtext": "Have a nice time.",
   "embed_color": "363A3F",
-  "embed_guildname": "Ninja Support Server"
+  "embed_guildname": "Rathens Server"
 }
