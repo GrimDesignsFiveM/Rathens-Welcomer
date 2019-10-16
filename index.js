@@ -114,7 +114,7 @@ rathens.on('guildMemberAdd', member => {
     const logChannel = member.guild.channels.find(channel => channel.name === "invite-logs");
     // A real basic message with the information we need. 
  let iEmbed = new Discord.RichEmbed()
-   .setTitle("Ninja Invite Logs")
+   .setTitle("Rathens Invite Logs")
    .setThumbnail("https://cdn.discordapp.com/avatars/595155471611068426/b6ffdf628b989aa8c55c446ff623042f.png?size=2048?size=1024")
    .setDescription(`<@${member.user.id}> Joined using the invite code below`)
    .setColor("#0x3dfbff")
