@@ -145,10 +145,6 @@ rathens.on('guildMemberAdd', member => {
     .setDescription("User got")
     .setTitle(member.tag);
   
-  send(log, userGot, {
-    name: "Bot Log",
-  });
-  
 });
 
 rathens.on('guildMemberAdd', member => {
