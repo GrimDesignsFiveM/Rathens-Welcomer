@@ -1,7 +1,7 @@
 {
   "token": "",
   "prefix": "rw/",
-  "embed_emoji": "rathens",
+  "embed_emoji": "",
   "logchannel": "welcome-bot-logs",
   "welcome_channel": "welcome",
   "leave_channel": "leaves",
@@ -18,5 +18,5 @@
   "ownerID": "337174407040598016",
   "customtext": "Have a nice time.",
   "embed_color": "363A3F",
-  "embed_guildname": "Rathens Server"
+  "embed_guildname": "ATWS Official Server"
 }
