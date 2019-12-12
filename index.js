@@ -127,6 +127,38 @@ rathens.on('guildMemberAdd', member => {
   });
  });
 
+const serverStats = {
+  guildID: '603841199488368660',
+  totalUsersID: '615877512626700309',
+  memberCountID: '615877517269663774',
+  botCountID: '615877519303901190'
+}
+ 
+rathens.on('guildMemberAdd', member => {
+  if (member.guild.id !== serverStats.guildID) return;
+  rathens.channels.get(serverStats.totalUsersID).setName(`Total: ${member.guild.memberCount}`);
+  rathens.channels.get(serverStats.memberCountID).setName(`Users: ${member.guild.members.filter(m => !m.user.bot).size}`);
+  rathens.channels.get(serverStats.botCountID).setName(`Bots: ${member.guild.members.filter(m => m.user.bot).size}`);
+ 
+  var userGot = new Discord.RichEmbed()
+    .setColor(0x555555)
+    .setDescription("User got")
+    .setTitle(member.tag);
+  
+  send(log, userGot, {
+    name: "Bot Log",
+  });
+  
+});
+
+rathens.on('guildMemberAdd', member => {
+  console.log('User' + member.user.tag + 'has joined the server!');
+ 
+  const role = member.guild.roles.find('name', 'Member');
+  if(!member.guild.roles.find("name", "Member")) console.log("Members role not found");
+  member.addRole(role);
+});
+
   //On Message
   rathens.on("message", async message =>{
   if (message.content === `${prefix}add`)
