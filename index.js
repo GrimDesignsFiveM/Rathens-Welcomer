@@ -160,8 +160,8 @@ rathens.on('guildMemberAdd', member => {
       };
       const guildspot = guildconfig || member.guild
       const emojispot = ` ` || `${emojiID}`
-      let rules = member.guild.channels.find("id", "627960820436828172")
-      let str = `Welcome to **${guildspot}**! <@${member.user.id}>!, Make sure you read the ${rules} channel :thumbsup:`
+      let rules = member.guild.channels.find("id", "612804396249776140")
+      let str = `Welcome to **${guildspot}**! <@${member.user.id}>!, Make sure you read the ${rules} channel :thumbsup: and enjoy your stay`
       const embed = new Discord.RichEmbed()
       .setTitle("Member Joined :thinking: :eyes:")
       .setColor(ecolor)
@@ -173,7 +173,7 @@ rathens.on('guildMemberAdd', member => {
       .addField('Joined Discord', `${moment(member.user.createdAt).toString().substr(0, 15)}\n(${moment(member.user.createdAt).fromNow()})`, true)
       .addField('Joined Server', `${moment(member.user.joinedAt).toString().substr(0, 15)}\n(${moment(member.user.joinedAt).fromNow()})`, true)   
       .setThumbnail(memberavatar)
-      .setFooter("© Rathens Welcomer")
+      .setFooter("© ATWS Welcomer")
       .setTimestamp();
       channel.send(embed);
   
@@ -205,7 +205,7 @@ rathens.on('guildMemberRemove', member => {
       .addField('Joined Discord', `${moment(member.user.createdAt).toString().substr(0, 15)}\n(${moment(member.user.createdAt).fromNow()})`, true)
       .addField('Joined Server', `${moment(member.user.joinedAt).toString().substr(0, 15)}\n(${moment(member.user.joinedAt).fromNow()})`, true)   
       .setThumbnail(memberavatar)
-      .setFooter("© Rathens Welcomer")
+      .setFooter("© ATWS Welcomer")
       .setTimestamp();
       channel.send(embed2);
 
