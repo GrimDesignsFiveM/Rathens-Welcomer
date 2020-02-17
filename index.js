@@ -1,5 +1,5 @@
  /*
- * Code by Tyler. H#9393!!
+ * Code by Toxic Dev!!
  * Ninja Discord Modertion Bot v1.00
  *
  *  I DO NOT authorize you to use this bot or the corresponding code without my consent first violation in this term will result in a copyright strike or lawsuit
